@@ -1,0 +1,234 @@
+.Carousel,.Carousel__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+.Carousel,.Carousel.Carousel--vert .Carousel__container,.Carousel__slider.Carousel__slider--vert,.Carousel__dots.Carousel__dots--vert {
+  flex-direction: column;
+}
+
+.Carousel.Carousel--vert {
+  flex-direction: row;
+}
+
+.Carousel__container {
+  flex-grow: 1;
+}
+
+.Carousel__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  height: 80px;
+  width: 40px;
+  background: #fff;
+  color: #333;
+  z-index: 2;
+}
+
+.Carousel__arrow:hover,.Carousel__arrow:focus,.Carousel__arrow:active {
+  color: #000;
+}
+
+.Carousel__arrow.Carousel__arrow--dark {
+  color: #fff;
+}
+
+.Carousel__arrow.Carousel__arrow--dark:hover,.Carousel__arrow.Carousel__arrow--dark:focus,.Carousel__arrow.Carousel__arrow--dark:active {
+  color: #fafafa;
+}
+
+.Carousel__arrow.Carousel__arrow--prev {
+  left: 0;
+  border-radius: 0 3px 3px 0;
+}
+.Carousel__arrow.Carousel__arrow--prev::after {
+  content: '\276E';
+  display: block;
+}
+.Carousel__arrow.Carousel__arrow--next::after {
+  content: '\276F';
+  display: block;
+}
+.Carousel__arrow.Carousel__arrow--next {
+  border-radius: 3px 0 0 3px;
+}
+
+.Carousel__arrow,.Carousel__dot {
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+}
+
+
+.Carousel__arrow.Carousel__arrow--disabled,.Carousel__arrow.Carousel__arrow--focusable.Carousel__arrow--focused.Carousel__arrow--disabled {
+  opacity: 0.2;
+}
+
+.Carousel__arrow.Carousel__arrow[disabled],.Carousel__arrow.Carousel__arrow--focusable.Carousel__arrow--focused.Carousel__arrow[disabled],.Carousel__dot.Carousel__dot[disabled],.Carousel__scrollbar.Carousel__scrollbar--disabled > * {
+  cursor: default;
+  outline: none;
+}
+
+.Carousel__slider {
+  overflow: hidden;
+  position: relative;
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+}
+.Carousel__slider.Carousel__slider--scrollable {
+  overflow: auto;
+}
+
+.Carousel__slider.Carousel__slider--vert {
+  width: 100%;
+}
+
+
+
+.Carousel__slider::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+}
+
+.Carousel__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  max-height: 100%;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.Carousel__dots.Carousel__dots--focusable,.Carousel__arrow.Carousel__arrow--focusable,.Carousel__scrollbar.Carousel__scrollbar--focusable,.Carousel__arrow.Carousel__arrow--focusable.Carousel__arrow[disabled] {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out 300ms;
+}
+.Carousel__dots.Carousel__dots--focusable.Carousel__dots--focused,.Carousel__arrow.Carousel__arrow--focusable.Carousel__arrow--focused,.Carousel__scrollbar.Carousel__scrollbar--focusable.Carousel__scrollbar--focused {
+  opacity: 1;
+}
+.Carousel__dot {
+  padding: 10px;
+  background: none;
+}
+
+.Carousel__dot::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-sizing: border-box;
+}
+.Carousel__dot:hover::after {
+  border-color: rgba(255,255,255,0.2);
+}
+
+.Carousel__dot.Carousel__dot--active::after {
+  background: #fff;
+  border: none;
+}
+
+.Carousel__dots.Carousel__dots--overlay {
+  position: absolute;
+  bottom: 24px;
+}
+.Carousel__arrow.Carousel__arrow--overlay {
+  position: absolute;
+  box-shadow: 0 1px 3px #888;
+}
+.Carousel__arrow.Carousel__arrow--overlay.Carousel__arrow--dark {
+  box-shadow: 0 1px 3px #000;
+}
+.Carousel__arrow.Carousel__arrow--overlay.Carousel__arrow--prev {
+  left: 0;
+}
+.Carousel__arrow.Carousel__arrow--overlay.Carousel__arrow--next {
+  right: 0;
+}
+
+.Carousel__arrow.Carousel__arrow--vert.Carousel__arrow--prev {
+  top: 0;
+  border-radius: 0 0 3px 3px;
+}
+.Carousel__arrow.Carousel__arrow--vert.Carousel__arrow--next {
+  bottom: 0;
+  border-radius: 3px 3px 0 0;
+}
+.Carousel__arrow.Carousel__arrow--vert.Carousel__arrow--prev,.Carousel__arrow.Carousel__arrow--vert.Carousel__arrow--next {
+  right: auto;
+  left: auto;
+  width: 80px;
+  height: 40px;
+}
+
+.Carousel__arrow.Carousel__arrow--vert.Carousel__arrow--prev::after,.Carousel__arrow.Carousel__arrow--vert.Carousel__arrow--next::after {
+  transform: rotate(90deg);
+}
+
+.Carousel__scrollbar {
+  height: 10px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.Carousel__scrollbar > * {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: #000;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  background-color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.Carousel__scrollbar > *:hover {
+  background-color: #fafafa;
+}
+
+.Carousel__dots.Carousel__dots--dark .Carousel__dot.Carousel__dot--active::after,.Carousel__scrollbar.Carousel__scrollbar--dark > *, .Carousel__arrow.Carousel__arrow--dark {
+  background-color: #000;
+}
+.Carousel__scrollbar.Carousel__scrollbar--dark > *:hover,.Carousel__dots.Carousel__dots--dark .Carousel__dot.Carousel__dot--active:hover::after, .Carousel__arrow.Carousel__arrow--dark {
+  background-color: #080808;
+}
+
+.Carousel__dots.Carousel__dots--dark .Carousel__dot.Carousel__dot--active:hover::after,.Carousel__dots.Carousel__dots--dark .Carousel__dot.Carousel__dot--active:focus::after,.Carousel__dots.Carousel__dots--dark .Carousel__dot.Carousel__dot--active:active::after {
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.Carousel__scrollbar.Carousel__scrollbar--vert {
+  height: 100%;
+  width: 12px;
+}
+
+.Carousel__scrollbar.Carousel__scrollbar--overlay {
+  position: absolute;
+  bottom: 0;
+}
+
+.Carousel__dots.Carousel__dots--vert,.Carousel__dots.Carousel__dots--overlay.Carousel__dots--vert {
+  right: 24px;
+  bottom: auto;
+}
+.Carousel__scrollbar.Carousel__scrollbar--overlay.Carousel__scrollbar--vert {
+  right: 0;
+  bottom: auto;
+}
